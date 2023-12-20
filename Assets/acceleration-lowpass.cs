@@ -15,6 +15,7 @@ public class LowPassFilterFromFile : MonoBehaviour
     private List<Vector3> accelerationData;
     private int currentIndex = 0;
     private Vector3 lastAcceleration = Vector3.zero;
+    private Vector3 lastVelocity = Vector3.zero;
     private float lastUpdateTime = 0f;
     private Vector3 currentVelocity = Vector3.zero;
     private Vector3 currentPosition = Vector3.zero;
@@ -54,7 +55,7 @@ public class LowPassFilterFromFile : MonoBehaviour
             currentVelocity += 0.5f * (lastAcceleration + currentAcceleration) * deltaTime;
 
             // 台形法を使った位置の積分
-            currentPosition += 0.5f * (currentVelocity + (0.5f * (lastAcceleration + currentAcceleration) * deltaTime)) * deltaTime;
+            currentPosition += 0.5f * (lastVelocity + currentVelocity) * deltaTime;
 
             transform.position = currentPosition; // オブジェクトの位置を更新
 
