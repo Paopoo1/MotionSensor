@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System.IO;
 using System.Globalization; // CultureInfoを使用するため
 
@@ -22,7 +23,8 @@ public class LowPassFilterFromFile : MonoBehaviour
 
 
     // ファイルパス
-    string filePath = "Assets/20231210235904_acceleration.txt";
+    [SerializeField]
+    string filePath = "Assets/20231223123028_acceleration.txt";
 
     void Start()
     {
@@ -66,12 +68,12 @@ public class LowPassFilterFromFile : MonoBehaviour
         }
 
 
-        if (currentIndex < accelerationData.Count)
-        {
-            Vector3 currentAcceleration = accelerationData[currentIndex];
-            lowPassValue = LowPassFilterAccelerometer(lowPassValue, currentAcceleration);
-            currentIndex++;
-        }
+        //if (currentIndex < accelerationData.Count)
+        //{
+        //    Vector3 currentAcceleration = accelerationData[currentIndex];
+        //    lowPassValue = LowPassFilterAccelerometer(lowPassValue, currentAcceleration);
+        //    currentIndex++;
+        //}
     }
 
     Vector3 LowPassFilterAccelerometer(Vector3 prevValue, Vector3 currentValue)
@@ -110,3 +112,5 @@ public class LowPassFilterFromFile : MonoBehaviour
     }
 
 }
+
+

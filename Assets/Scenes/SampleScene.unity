@@ -427,6 +427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3c6e56b63944d78a379bc4a68d4054, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  filePath: Assets/20231210235904_acceleration.txt
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
