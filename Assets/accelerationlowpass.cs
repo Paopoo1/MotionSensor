@@ -6,9 +6,11 @@ using System.Globalization;
 
 public class accelerationlowpass : MonoBehaviour
 {
-    float accelerometerUpdateInterval = 1.0f / 10.0f;
+    float accelerometerUpdateInterval = 1.0f / 26.0f;
+    //float accelerometerUpdateInterval = 1.0f / 10.0f;
     //float accelerometerUpdateInterval = 1.0f / 60.0f;
     private List<Vector3> accelerationData;
+    [SerializeField]
     private int currentIndex = 0;
     private Vector3 currentVelocity = Vector3.zero;
     private Vector3 currentPosition = Vector3.zero;
@@ -39,7 +41,7 @@ public class accelerationlowpass : MonoBehaviour
         if (buffer.Count >= (0.5f / accelerometerUpdateInterval))
         {
             Vector3 averageAcceleration = CalculateAverage(buffer);
-            UpdatePosition(averageAcceleration, deltaTime);
+            UpdatePosition(buffer[buffer.Count-1],deltaTime);
 
             Debug.Log($"Time: {Time.time}s, Position: {transform.position}");
 
